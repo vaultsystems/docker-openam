@@ -1,0 +1,2 @@
+docker run -v $PWD:/mnt ubuntu:precise bash -c "apt-get update && apt-get install -y subversion && svn co https://svn.forgerock.org/openam/tags/12.0.0-1/openam && tar czf /mnt/openam-source.tar.gz openam"
+docker run -v $PWD:/mnt ubuntu:wily bash -c "apt-get update && apt-get install -y default-jdk maven && tar xzf /mnt/openam-source.tar.gz && cd openam && MAVEN_OPTS=-Xmx512m mvn -DskipTests=true clean install && cp openam-server/target/*.war /mnt"
