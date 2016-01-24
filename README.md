@@ -11,4 +11,4 @@ Build and run the container:
     docker build -t openam .
     docker run -e KEYSTORE_PASS=secret -v $PWD/server.keystore:/opt/server.keystore -v /dev/urandom:/dev/random --cap-add=SYS_PTRACE --security-opt=apparmor:unconfined --name openam -p 8443:8443 -d openam
 
-Open https://<ip>:8443/openam to see the OpenAM configuration wizard
+Open *https://ipaddress:8443/openam* to see the OpenAM configuration wizard
