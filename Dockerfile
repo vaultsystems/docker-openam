@@ -6,5 +6,5 @@ RUN wget https://github.com/OpenRock/OpenAM/releases/download/12.0.0-1/OpenAM-12
     rm *.zip
 ENV CATALINA_OPTS="-Xmx2048m -server"
 CMD perl -0pi.bak -e 's/<!--\n    <Connector port="8443"/<Connector port="8443" keystoreFile="\/opt\/server.keystore" keystorePass="$ENV{'KEYSTORE_PASS'}"/' $CATALINA_HOME/conf/server.xml && \
-    perl -0pi.bak -e 's/sslProtocol="TLS" \/>\n    -->/sslProtocol="TLS" \/>/' x$CATALINA_HOME/conf/server.xml && \
+    perl -0pi.bak -e 's/sslProtocol="TLS" \/>\n    -->/sslProtocol="TLS" \/>/' $CATALINA_HOME/conf/server.xml && \
     catalina.sh run
